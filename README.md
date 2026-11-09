@@ -25,6 +25,16 @@ Reduced-motion preferences suppress animation. The entrance keeps the underlying
 
 Share invitation opens the device's native share sheet when supported. Otherwise, a dialog offers WhatsApp, email and a copyable link. Opening the controls does not send a message or change the Site's audience; guest access still depends on the configured Site permissions.
 
+## Vercel deployment
+
+The repository's `vercel.json` selects Next.js and runs `npx next build`. This creates the `.next` output that Vercel expects. The ordinary `npm run build` command remains the Vinext/Sites build and is not the Vercel build command.
+
+In Vercel, use the Next.js framework preset, the repository root as Root Directory, and the default Output Directory (leave its override disabled). If configuring the build through the dashboard instead of `vercel.json`, set Build Command to `npx next build`. Keep Install Command at its default. Redeploy after changing the configuration.
+
+Share invitation uses the address where the visitor opened the invitation. Canonical and Open Graph URLs use Vercel's production domain when its system environment variables are available. To set a particular production domain explicitly, configure `NEXT_PUBLIC_SITE_URL` to its complete HTTPS URL and redeploy. Outside Vercel, the existing Sites domain remains the metadata fallback.
+
+For a local Vercel-style production check, run `npx next build`, then `npx next start`.
+
 ## Development and hosting
 
 Vinext starter and its Sites build integration are retained. Use the installed Sites helper for dependency installation, source synchronization, builds, packaging and deployment. Preserve the existing project ID and audience. Keep temporary responsive-review pages out of production.

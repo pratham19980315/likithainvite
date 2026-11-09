@@ -4,12 +4,8 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Check, Copy, Mail, MessageCircle, Share2, X } from "lucide-react";
 import "./share-invitation.css";
 
-const invitationUrl = "https://likitha-jeevan-wedding-2026.advitodev.chatgpt.site/";
 const invitationTitle = "Likitha & Jeevan — Wedding Invitation";
 const invitationText = "Join us to celebrate the wedding of Likitha S. and Jeevan B.K.";
-const invitationMessage = `${invitationText}\n\n${invitationUrl}`;
-const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(invitationMessage)}`;
-const emailUrl = `mailto:?subject=${encodeURIComponent(invitationTitle)}&body=${encodeURIComponent(invitationMessage)}`;
 
 export default function ShareInvitation() {
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -17,6 +13,10 @@ export default function ShareInvitation() {
   const [sharing, setSharing] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [copyStatus, setCopyStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
+  const [invitationUrl, setInvitationUrl] = useState("");
+  const invitationMessage = `${invitationText}\n\n${invitationUrl}`;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(invitationMessage)}`;
+  const emailUrl = `mailto:?subject=${encodeURIComponent(invitationTitle)}&body=${encodeURIComponent(invitationMessage)}`;
 
   useEffect(() => {
     if (!dialogOpen) return;
@@ -34,13 +34,15 @@ export default function ShareInvitation() {
 
   async function shareInvitation() {
     if (sharing) return;
+    const url = new URL("/", window.location.href).href;
+    setInvitationUrl(url);
     if (typeof navigator.share !== "function") {
       showShareOptions();
       return;
     }
     setSharing(true);
     try {
-      await navigator.share({ title: invitationTitle, text: invitationText, url: invitationUrl });
+      await navigator.share({ title: invitationTitle, text: invitationText, url });
     } catch (error) {
       // Dismissing the device's share sheet is an ordinary user choice.
       if (!(error instanceof Error && error.name === "AbortError")) showShareOptions();

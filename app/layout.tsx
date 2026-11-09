@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (productionHost
+  ? `https://${productionHost}`
+  : "https://likitha-jeevan-wedding-2026.advitodev.chatgpt.site");
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://likitha-jeevan-wedding-2026.advitodev.chatgpt.site"),
+  metadataBase: new URL(siteUrl),
   title: "Likitha & Jeevan | Wedding Invitation",
   description: "Join the wedding celebrations of Likitha S. and Jeevan B.K. on 3 December 2026 at Suvidha Resort, Bengaluru. Open the temple doors and explore our illustrated wedding invitation, celebrations and venue details.",
   robots: { index: false, follow: false },
