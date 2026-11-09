@@ -23,8 +23,8 @@
 .celebration-hotspot-name { display: block; position: relative; margin-top: 9px; padding: 7px 13px 8px; border: 1px solid #b9996259; border-radius: 2px; background: #fff8eaf5; box-shadow: 0 3px 16px #3c2b1c2b; font: 15px/1.3 var(--font-serif, "Noto Serif", Georgia, serif); white-space: nowrap; }
 .celebration-hotspot:hover .celebration-hotspot-marker { transform: scale(1.12); background: #fffefa; }
 .celebration-hotspot:focus-visible { outline: 2px solid #203e35; outline-offset: 5px; border-radius: 6px; }
-/* Dates and times are visible before the optional illustrated pavilions. */
-.celebrations-schedule { max-width: 640px; margin: 0 auto 34px; padding: 0 24px; font-family: var(--font-sans, "Open Sans", sans-serif); }
+/* Dates and times remain visible beneath the illustrated pavilions. */
+.celebrations-schedule { max-width: 640px; margin: 34px auto 0; padding: 0 24px; font-family: var(--font-sans, "Open Sans", sans-serif); }
 .celebrations-schedule-heading { margin: 0 0 18px; color: #344735; font: 20px/1.5 var(--font-serif, "Noto Serif", Georgia, serif); text-align: center; }
 .celebrations-schedule ol { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin: 0; padding: 0; list-style: none; }
 .celebrations-schedule li { display: flex; gap: 12px; min-width: 0; padding: 16px; border: 1px solid #b7a77b77; border-radius: 3px; background: #fffaf0; }

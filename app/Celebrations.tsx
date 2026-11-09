@@ -114,26 +114,6 @@ export default function Celebrations() {
         <p>Join us for these celebrations with our families.</p>
       </header>
 
-      <section className="celebrations-schedule" aria-labelledby="celebrations-schedule-title">
-        <h3 className="celebrations-schedule-heading" id="celebrations-schedule-title">Celebration schedule</h3>
-        <ol>
-          {celebrations.map((celebration, index) => (
-            <li key={celebration.id}>
-              <span className="schedule-number" aria-hidden="true">0{index + 1}</span>
-              <div>
-                <h4 className="schedule-event-name">{celebration.name}</h4>
-                {celebration.subtitle && <p className="schedule-subtitle">{celebration.subtitle}</p>}
-                <p className="schedule-date">{celebration.day && `${celebration.day}, `}{celebration.isoDate ? <time dateTime={celebration.isoDate}>{celebration.date}</time> : celebration.date}</p>
-                <p>{celebration.time}</p>
-                {celebration.note && <p className="schedule-note">{celebration.note}</p>}
-                {celebration.calendar && <a className="schedule-calendar" href={celebration.calendar} download><CalendarDays size={14} aria-hidden="true" /> Add to calendar</a>}
-              </div>
-            </li>
-          ))}
-        </ol>
-        <p className="schedule-venue">All celebrations at Suvidha Resort (Ajji Thota), Bengaluru.</p>
-      </section>
-
       <figure className="celebrations-courtyard" data-reveal>
         <div className="celebrations-artwork">
           <img
@@ -161,6 +141,27 @@ export default function Celebrations() {
         </div>
         <figcaption>Explore the pavilions for celebration details</figcaption>
       </figure>
+
+      <section className="celebrations-schedule" aria-labelledby="celebrations-schedule-title">
+        <h3 className="celebrations-schedule-heading" id="celebrations-schedule-title">Celebration schedule</h3>
+        <ol>
+          {celebrations.map((celebration, index) => (
+            <li key={celebration.id}>
+              <span className="schedule-number" aria-hidden="true">0{index + 1}</span>
+              <div>
+                <h4 className="schedule-event-name">{celebration.name}</h4>
+                {celebration.subtitle && <p className="schedule-subtitle">{celebration.subtitle}</p>}
+                <p className="schedule-date">{celebration.day && `${celebration.day}, `}{celebration.isoDate ? <time dateTime={celebration.isoDate}>{celebration.date}</time> : celebration.date}</p>
+                <p>{celebration.time}</p>
+                {celebration.note && <p className="schedule-note">{celebration.note}</p>}
+                {celebration.calendar && <a className="schedule-calendar" href={celebration.calendar} download><CalendarDays size={14} aria-hidden="true" /> Add to calendar</a>}
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p className="schedule-venue">All celebrations at Suvidha Resort (Ajji Thota), Bengaluru.</p>
+      </section>
+
       <p className="celebrations-timezone">All times are in India Standard Time.</p>
 
       <dialog
