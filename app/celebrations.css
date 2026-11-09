@@ -1,0 +1,106 @@
+.celebrations-story {
+  --celebrations-ink: #203e35;
+  --celebrations-gold: #9f7e42;
+  position: relative;
+  padding: 88px 0 68px;
+  color: var(--celebrations-ink);
+  background: #faf5e9;
+  scroll-margin-top: 0;
+}
+.celebrations-story-heading { margin: 0 auto 34px; max-width: 560px; padding: 0 24px; text-align: center; }
+.celebrations-kicker { margin: 0; font: 10px/1.7 var(--font-sans, "Open Sans", sans-serif); letter-spacing: .22em; text-transform: uppercase; color: #7d785f; }
+.celebrations-divider { display: block; margin: 13px auto; font-size: 16px; color: var(--celebrations-gold); }
+.celebrations-story-heading h2 { margin: 0 0 13px; font: italic 44px/1.25 var(--font-serif, "Noto Serif", Georgia, serif); letter-spacing: -.045em; }
+.celebrations-story-heading > p:last-child { margin: 0; font: 12px/1.8 var(--font-sans, "Open Sans", sans-serif); color: #727568; }
+.celebrations-courtyard { width: calc(100% - 32px); max-width: 720px; margin: 0 auto; }
+.celebrations-artwork { position: relative; isolation: isolate; width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #e4e3ce; }
+.celebrations-artwork::after { content: ""; position: absolute; z-index: 1; inset: 9px; border: 1px solid #b19a5b66; pointer-events: none; }
+.celebrations-artwork img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.celebrations-courtyard figcaption { padding: 12px 8px 0; color: #7e806e; font: italic 10px/1.6 var(--font-serif, "Noto Serif", Georgia, serif); text-align: center; }
+.celebration-hotspot { position: absolute; z-index: 2; top: var(--hotspot-y); left: var(--hotspot-x); transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; min-width: 112px; min-height: 78px; padding: 6px; border: 0; background: transparent; color: var(--event-colour); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.celebration-hotspot-marker { position: relative; display: grid; place-items: center; width: 38px; height: 38px; flex: 0 0 auto; border: 1px solid #c7a569; border-radius: 50%; background: #fff8eaf5; box-shadow: 0 3px 16px #3c2b1c45; transition: transform .25s, background .25s; }
+.celebration-hotspot-marker::before { content: ""; position: absolute; inset: -7px; border: 1px solid #fff7d7d9; border-radius: 50%; box-shadow: 0 0 0 1px #a98c474a; animation: celebration-pulse 3.2s ease-out infinite; animation-delay: var(--pulse-delay); }
+.celebration-hotspot-name { display: block; position: relative; margin-top: 9px; padding: 7px 13px 8px; border: 1px solid #b9996259; border-radius: 2px; background: #fff8eaf5; box-shadow: 0 3px 16px #3c2b1c2b; font: 13px/1.3 var(--font-serif, "Noto Serif", Georgia, serif); white-space: nowrap; }
+.celebration-hotspot:hover .celebration-hotspot-marker { transform: scale(1.12); background: #fffefa; }
+.celebration-hotspot:focus-visible { outline: 2px solid #203e35; outline-offset: 5px; border-radius: 6px; }
+.celebrations-schedule { max-width: 640px; margin: 29px auto 0; padding: 0 24px; font-family: var(--font-sans, "Open Sans", sans-serif); }
+.celebrations-schedule > summary { display: flex; align-items: center; justify-content: center; gap: 14px; min-height: 52px; padding: 12px; border-top: 1px solid #b7a77b55; border-bottom: 1px solid #b7a77b55; font-size: 12px; cursor: pointer; list-style: none; }
+.celebrations-schedule > summary::-webkit-details-marker { display: none; }
+.celebrations-schedule > summary svg { transition: transform .25s; }
+.celebrations-schedule[open] > summary svg { transform: rotate(180deg); }
+.celebrations-schedule > summary:focus-visible { outline: 2px solid #9f7e42; outline-offset: 4px; }
+.celebrations-schedule ol { margin: 3px 0 0; padding: 0; list-style: none; }
+.celebrations-schedule li { display: flex; gap: 22px; padding: 24px 5px; border-bottom: 1px solid #b7a77b33; }
+.schedule-number { padding-top: 4px; color: #a78c59; font: italic 14px/1.5 var(--font-serif, "Noto Serif", Georgia, serif); }
+.celebrations-schedule h3 { margin: 0 0 8px; font: italic 26px/1.3 var(--font-serif, "Noto Serif", Georgia, serif); }
+.celebrations-schedule li p { margin: 3px 0; font-size: 12px; line-height: 1.8; }
+.celebrations-schedule .schedule-subtitle { margin-top: -5px; margin-bottom: 12px; color: #7d6656; font: italic 13px/1.5 var(--font-serif, "Noto Serif", Georgia, serif); }
+.schedule-date { color: #4a5e4d; }
+.celebrations-schedule li .schedule-note { color: #89734b; font-size: 10px; letter-spacing: .07em; text-transform: uppercase; }
+.schedule-calendar { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; margin-top: 7px; font-size: 11px; color: #775e35; text-decoration: underline; text-underline-offset: 4px; }
+.schedule-calendar:hover { color: #203e35; }
+.schedule-venue { margin: 20px auto 8px; font-size: 11px; line-height: 1.8; text-align: center; color: #707566; }
+.celebrations-timezone { margin: 17px 16px 0; color: #888675; font: 9px/1.6 var(--font-sans, "Open Sans", sans-serif); letter-spacing: .04em; text-align: center; }
+.celebrations-dialog { box-sizing: border-box; position: fixed; inset: 0; width: calc(100% - 28px); max-width: 440px; max-height: calc(100dvh - 32px); margin: auto; padding: 0; overflow-x: hidden; overflow-y: auto; border: 1px solid #d3bc83; border-radius: 3px; background: #faf5e9; color: #203e35; box-shadow: 0 28px 100px #071c1466; font-family: var(--font-sans, "Open Sans", sans-serif); }
+.celebrations-dialog::backdrop { background: #10271fd9; backdrop-filter: blur(6px); }
+.celebrations-dialog[open] { animation: celebration-dialog-enter .45s cubic-bezier(.16, 1, .3, 1); }
+.celebrations-dialog-inner { position: relative; min-height: 100%; padding: 46px 25px 12px; }
+.celebrations-dialog-inner::before { content: ""; position: absolute; z-index: 0; inset: 9px; border: 1px solid #b59c6152; pointer-events: none; }
+.celebrations-dialog-close { position: absolute; z-index: 2; top: 10px; right: 10px; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: #746c53; cursor: pointer; }
+.celebrations-dialog-close:hover { background: #e8e0cc; }
+.celebrations-dialog button:focus-visible, .celebrations-dialog a:focus-visible { outline: 2px solid #9f7e42; outline-offset: 3px; }
+.celebrations-dialog-details { position: relative; text-align: center; animation: celebration-details-enter .35s ease-out; }
+.celebrations-dialog-kicker { margin: 0; font-size: 9px; line-height: 1.8; letter-spacing: .19em; text-transform: uppercase; color: #8e815e; }
+.celebrations-dialog-flower { display: block; margin: 14px 0 10px; color: #ab8a45; font-size: 21px; }
+.celebrations-dialog h3 { margin: 0; font: italic 43px/1.2 var(--font-serif, "Noto Serif", Georgia, serif); letter-spacing: -.05em; color: var(--event-colour); }
+.celebrations-dialog-subtitle { margin: 8px 0 0; font: italic 15px/1.6 var(--font-serif, "Noto Serif", Georgia, serif); color: var(--event-colour); }
+.celebrations-dialog-description { max-width: 260px; margin: 13px auto 0; font: italic 13px/1.8 var(--font-serif, "Noto Serif", Georgia, serif); color: #7a795f; }
+.celebrations-dialog-when { padding: 23px 0 20px; margin: 0 auto; }
+.celebrations-dialog-day { margin: 0 0 7px; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: #8a8064; }
+.celebrations-dialog-when > time { display: block; font: 22px/1.5 var(--font-serif, "Noto Serif", Georgia, serif); }
+.celebrations-dialog-pending { margin: 0; font: italic 20px/1.5 var(--font-serif, "Noto Serif", Georgia, serif); }
+.celebrations-dialog-time { margin: 9px 0 0; font-size: 12px; line-height: 1.7; }
+.celebrations-dialog-note { margin: 9px 0 0; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; color: #9a8050; }
+.celebrations-dialog-where { display: flex; justify-content: center; align-items: flex-start; gap: 8px; padding-top: 18px; border-top: 1px solid #c4b27a5c; color: #626d58; }
+.celebrations-dialog-where svg { flex: 0 0 auto; }
+.celebrations-dialog-where p { margin: 0; font-size: 12px; line-height: 1.6; }
+.celebrations-dialog-where span { display: block; font-size: 10px; }
+.celebrations-dialog-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px 15px; margin-top: 17px; }
+.celebrations-dialog-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; font-size: 10px; line-height: 1.5; text-decoration: none; }
+.celebrations-save { padding: 9px 13px; background: var(--event-colour); color: #fff9ea; border: 1px solid var(--event-colour); }
+.celebrations-save:hover { filter: brightness(1.12); }
+.celebrations-directions { padding: 8px 4px; color: #775f37; text-decoration: underline !important; text-underline-offset: 4px; }
+.celebrations-dialog-timezone { margin: 14px 0 0; font-size: 8px; color: #90866e; }
+.celebrations-dialog-pagination { position: relative; display: flex; justify-content: space-between; align-items: center; margin: 19px 0 0; padding-top: 8px; border-top: 1px solid #c4b27a33; }
+.celebrations-dialog-pagination button { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: transparent; color: #806b41; cursor: pointer; }
+.celebrations-dialog-pagination button:hover { background: #eae3cf; border-radius: 50%; }
+.celebrations-dialog-pagination span { font-size: 9px; letter-spacing: .13em; color: #8a7956; }
+.celebrations-dialog-pagination i { padding: 0 9px; font-style: normal; color: #b4a880; }
+@keyframes celebration-pulse { 0% { transform: scale(.85); opacity: .95; } 75%, 100% { transform: scale(1.34); opacity: 0; } }
+@keyframes celebration-dialog-enter { from { opacity: 0; transform: translateY(22px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes celebration-details-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 480px) {
+  .celebrations-story { padding: 68px 0 52px; }
+  .celebrations-story-heading { padding: 0 18px; margin-bottom: 28px; }
+  .celebrations-story-heading h2 { font-size: 36px; }
+  .celebrations-story-heading > p:last-child { font-size: 11px; }
+  .celebrations-courtyard { width: calc(100% - 20px); }
+  .celebration-hotspot { min-width: 104px; }
+  .celebration-hotspot-name { font-size: 11px; padding: 6px 11px 7px; }
+  .celebration-hotspot-marker { width: 34px; height: 34px; }
+  .celebrations-schedule { padding: 0 20px; }
+}
+@media (max-width: 350px) {
+  .celebrations-story-heading h2 { font-size: 31px; }
+  .celebrations-dialog-inner { padding: 44px 20px 10px; }
+  .celebrations-dialog h3 { font-size: 36px; }
+  .celebrations-dialog-when > time { font-size: 20px; }
+  .celebrations-dialog-description { font-size: 12px; }
+  .celebrations-dialog-actions { gap: 4px 9px; }
+  .celebrations-dialog-actions a { font-size: 9px; }
+  .celebrations-save { padding: 8px 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .celebration-hotspot-marker::before, .celebrations-dialog[open], .celebrations-dialog-details { animation: none; }
+  .celebration-hotspot-marker, .celebrations-schedule > summary svg { transition: none; }
+}

@@ -1,0 +1,246 @@
+.temple-entry {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent;
+  touch-action: manipulation;
+}
+
+.temple-entry-camera {
+  position: absolute;
+  inset: 0;
+  transform-origin: var(--camera-origin-x, 50%) var(--camera-origin-y, 65.9%);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.temple-entry-frame {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: calc(100svh * 1080 / 1727);
+  height: 100svh;
+  transform: translateX(-50%);
+}
+
+.temple-entry-architecture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.temple-entry-portal {
+  position: absolute;
+  top: 44%;
+  left: 24.8%;
+  width: 50.2%;
+  height: 43.8%;
+  overflow: hidden;
+  perspective: 1100px;
+  perspective-origin: 50% 50%;
+}
+
+.temple-entry-leaf {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url("/images/temple-entrance.webp");
+  background-repeat: no-repeat;
+  background-size: 398.4064% 228.3105%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transition: transform 1.28s cubic-bezier(.42, 0, .18, 1);
+}
+
+.temple-entry-leaf-left {
+  left: 0;
+  transform-origin: left center;
+  background-position: 33.1108% 78.2918%;
+}
+
+.temple-entry-leaf-right {
+  right: 0;
+  transform-origin: right center;
+  background-position: 66.6222% 78.2918%;
+}
+
+.temple-entry-copy {
+  position: absolute;
+  top: 51%;
+  left: 24.8%;
+  width: 50.2%;
+  text-align: center;
+  color: #fff4cf;
+  text-shadow: 0 2px 12px #281002a6;
+  transition: opacity .26s ease, transform .35s ease;
+}
+
+.temple-entry-kicker {
+  font: 400 clamp(7px, 1.12svh, 10px)/1.8 var(--font-sans, Arial, sans-serif);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
+
+.temple-entry-initials {
+  margin: 10px 0 5px;
+  font: italic 400 clamp(35px, 7.1svh, 71px)/1.35 var(--font-serif, Georgia, serif);
+  letter-spacing: -.06em;
+  white-space: nowrap;
+}
+
+.temple-entry-initials span {
+  font-size: .57em;
+  color: #efd48b;
+}
+
+.temple-entry-date {
+  font: 400 clamp(8px, 1.22svh, 11px)/1.8 var(--font-sans, Arial, sans-serif);
+  letter-spacing: .23em;
+}
+
+.temple-entry-copy button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  max-width: 100%;
+  margin-top: clamp(15px, 3.1svh, 30px);
+  padding: 13px 16px;
+  border: 1px solid #e7d08d;
+  border-radius: 0;
+  background: #fbf1d7;
+  box-shadow: 0 4px 16px #33150033;
+  color: #684a29;
+  font: 400 clamp(9px, 1.17svh, 11px)/1.4 var(--font-sans, Arial, sans-serif);
+  letter-spacing: .035em;
+  text-shadow: none;
+  transition: background .2s ease, box-shadow .2s ease;
+}
+
+.temple-entry-copy button:hover {
+  background: #fff9e9;
+  box-shadow: 0 5px 22px #2d14004a;
+}
+
+.temple-entry-copy button:focus-visible {
+  outline: 2px solid #fff5d8;
+  outline-offset: 6px;
+}
+
+.temple-entry-copy button svg {
+  flex-shrink: 0;
+}
+
+.temple-entry-caption {
+  position: absolute;
+  right: 20px;
+  bottom: 3.2%;
+  left: 20px;
+  text-align: center;
+  font: italic 400 clamp(10px, 1.5svh, 13px)/1.7 var(--font-serif, Georgia, serif);
+  color: #4d5c3e;
+  text-shadow: 0 1px 8px #fff4d3;
+  transition: opacity .2s ease;
+}
+
+.temple-entry-side {
+  position: absolute;
+  top: 50%;
+  font: italic 400 18px/1.5 var(--font-serif, Georgia, serif);
+  color: #7f8066;
+  transition: opacity .2s ease;
+}
+
+.temple-entry-side-left {
+  left: calc((100% - 100svh * 1080 / 1727) / 4);
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.temple-entry-side-right {
+  right: calc((100% - 100svh * 1080 / 1727) / 4);
+  transform: translate(50%, -50%) rotate(90deg);
+}
+
+.temple-entry-is-opening .temple-entry-leaf-left {
+  transform: rotateY(-108deg);
+}
+
+.temple-entry-is-opening .temple-entry-leaf-right {
+  transform: rotateY(108deg);
+}
+
+.temple-entry-is-opening .temple-entry-copy {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.temple-entry-is-opening .temple-entry-caption,
+.temple-entry-is-opening .temple-entry-side {
+  opacity: 0;
+}
+
+.temple-entry-is-opening .temple-entry-camera {
+  will-change: transform;
+  animation: temple-entry-walk-through 1.8s 1.02s cubic-bezier(.55, .08, .25, 1) both;
+}
+
+@keyframes temple-entry-walk-through {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(var(--camera-x), var(--camera-y), 0) scale(var(--camera-scale));
+  }
+}
+
+@media (max-width: 800px) {
+  .temple-entry-side {
+    display: none;
+  }
+}
+
+@media (max-height: 540px) {
+  .temple-entry-copy {
+    top: 48.5%;
+  }
+  .temple-entry-kicker {
+    font-size: 6px;
+    letter-spacing: .08em;
+  }
+  .temple-entry-initials {
+    margin: 3px 0;
+    font-size: 31px;
+  }
+  .temple-entry-copy button {
+    gap: 5px;
+    margin-top: 9px;
+    padding: 8px 7px;
+    font-size: 8px;
+  }
+  .temple-entry-date {
+    font-size: 7px;
+    letter-spacing: .13em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .temple-entry-copy,
+  .temple-entry-caption,
+  .temple-entry-side,
+  .temple-entry-leaf {
+    transition: none;
+  }
+  .temple-entry-is-opening .temple-entry-camera {
+    animation-duration: .01ms;
+    animation-delay: 0s;
+  }
+}

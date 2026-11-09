@@ -1,0 +1,107 @@
+LIKITHA & JEEVAN — COMPLETE E-INVITATION PROJECT
+Latest published revision: 5 • Exported 9 November 2026
+
+START HERE
+
+This ZIP contains the complete editable website project, all website images,
+self-hosted fonts and licence notices, calendar downloads, and the latest
+compiled Worker build. It includes the smaller matching jasmine dividers,
+refined date flower ring, top-right day/night control, door-entry animation,
+sharing options, and the pavilion image corrected to fill the section width.
+
+1. EXTRACT THE ZIP
+
+Extract the entire Likitha-Jeevan-EInvite folder to your computer. Keep its
+folders together, including the .openai folder. Work from this folder in a
+terminal. Some file managers hide folders beginning with a dot.
+
+2. INSTALL AND OPEN LOCALLY
+
+Use Node.js 22.13.0 or newer, with npm. An internet connection is needed for
+the first dependency installation. The dependency versions are locked in
+package-lock.json; node_modules is installed locally rather than bundled.
+
+Run:
+
+    npm run install:ci
+    npm run dev
+
+Open the local URL printed in the terminal. The development port defaults
+to 5173. Keep that terminal running while viewing the invitation.
+
+This is a Vinext/React web application. It must run through its web server;
+it is not a single index.html file that can be opened by double-clicking.
+
+3. VIEW OR REBUILD THE PRODUCTION VERSION
+
+After installing dependencies, preview the included build with:
+
+    npm start
+
+Open the URL printed by Wrangler in the terminal.
+
+After editing the source, rebuild and preview with:
+
+    npm run build
+    npm start
+
+The source and included build correspond to the same published revision.
+Framework-generated Node prerender metadata is excluded from the export;
+the configured Wrangler Worker does not require it. A rebuild regenerates it.
+
+4. WHERE TO EDIT
+
+app/page.tsx                  Main invitation, names, families, date and venue
+app/globals.css               Main styling, layout, dividers and day/night scenes
+app/TempleEntrance.tsx        Door opening and forward movement
+app/temple-entrance.css        Entrance styling and animation
+app/Celebrations.tsx          Haldi, Sangeeth, Muhurtham and reception details
+app/celebrations.css          Celebration courtyard and event panels
+app/ShareInvitation.tsx       Share invitation control and link
+app/share-invitation.css      Sharing panel styling
+app/layout.tsx                Page title, description and social metadata
+public/images/                Temple, courtyard, pavilion and floral artwork
+public/fonts/                 Fonts and their licence notices
+public/calendar/              Calendar downloads
+dist/client/                  Built browser assets
+dist/server/                  Built Worker and server-side modules
+
+5. PUBLISHING / DEVELOPER HANDOFF
+
+The built application targets Cloudflare Workers. Keep dist/server and
+dist/client in their current relative locations. dist/server/wrangler.json
+is the deployment configuration, with index.js as the Worker entrypoint.
+Deploy both the Worker and its client assets through your chosen hosting
+workflow. Uploading only dist/client to ordinary static hosting will not
+reproduce this application.
+
+For a new domain, first update invitationUrl in app/ShareInvitation.tsx and
+metadataBase in app/layout.tsx, then run npm run build. Asset paths assume
+the invitation is hosted at the domain root.
+
+The .openai/hosting.json file identifies the existing ChatGPT Site and is
+imported by vite.config.ts. Preserve it when working with this existing Site.
+For a separate new Site, let the hosting workflow create its new identity.
+The original live link's audience/login settings are managed by its host;
+configure access separately if publishing the downloaded project elsewhere.
+
+Original live invitation:
+https://likitha-jeevan-wedding-2026.advitodev.chatgpt.site/
+
+6. CONTENT NOTES
+
+The pre-wedding photographs were not supplied; the current monograms are
+included. Sangeeth remains at 6:00 p.m. onwards with its date unconfirmed,
+matching the information supplied. The reception and lunch details remain
+on 13 December 2026. All event times shown are India Standard Time.
+
+Sound is synthesized in the browser, so it has no separate music file.
+The illustration source assets used by the website are provided as WebP
+files. Font licences are included beside the font files.
+
+The project does not require a database or storage-service data export.
+The ZIP excludes dependency installations, Git history, credentials, local
+environment files, temporary review files and machine-specific caches.
+
+For the original project notes, see README.md. For export provenance and
+file counts, see EXPORT-INFO.json.

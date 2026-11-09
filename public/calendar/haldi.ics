@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invitation//Likitha and Jeevan//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:likitha-jeevan-2026-haldi@wedding-invite.invalid
+DTSTAMP:20261109T071539Z
+DTSTART:20261202T070000Z
+SUMMARY:Likitha S. & Jeevan B.K. - Haldi
+LOCATION:Suvidha Resort (Ajji Thota)\, Acharya College Main Road\, Thammena
+ halli\, Bengaluru - 560107
+DESCRIPTION:Haldi ceremony. 12:30 p.m. IST onwards.
+END:VEVENT
+END:VCALENDAR

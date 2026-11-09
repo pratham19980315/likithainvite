@@ -1,0 +1,39 @@
+.share-invitation-trigger { min-height: 44px; }
+.share-invitation-trigger[aria-busy="true"] { opacity: .7; }
+.share-invitation-dialog { box-sizing: border-box; position: fixed; inset: 0; width: calc(100% - 28px); max-width: 420px; max-height: calc(100dvh - 32px); margin: auto; padding: 0; overflow-x: hidden; overflow-y: auto; border: 1px solid #c6ae78; border-radius: 3px; background: #faf5e9; color: #203e35; box-shadow: 0 28px 100px #071c1466; font-family: var(--font-sans, "Open Sans", sans-serif); text-align: center; }
+.share-invitation-dialog::backdrop { background: #10271fd9; backdrop-filter: blur(6px); }
+.share-invitation-dialog[open] { animation: share-invitation-enter .4s cubic-bezier(.16,1,.3,1); }
+.share-invitation-inner { position: relative; padding: 41px 28px 17px; }
+.share-invitation-inner::before { content: ""; position: absolute; inset: 9px; border: 1px solid #b59c6152; pointer-events: none; }
+.share-invitation-close { position: absolute; top: 10px; right: 10px; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: #746c53; cursor: pointer; }
+.share-invitation-close:hover { background: #e8e0cc; }
+.share-invitation-flower { display: block; margin-bottom: 13px; color: #a58a51; font-size: 19px; }
+.share-invitation-kicker { margin: 0 0 10px; font-size: 9px; line-height: 1.8; letter-spacing: .2em; text-transform: uppercase; color: #8b805f; }
+.share-invitation-dialog h2 { margin: 0; font: italic 36px/1.3 var(--font-serif, "Noto Serif", Georgia, serif); letter-spacing: -.045em; }
+#share-invitation-description { max-width: 260px; margin: 12px auto 0; font: italic 12px/1.8 var(--font-serif, "Noto Serif", Georgia, serif); color: #79806b; }
+.share-invitation-options { display: grid; grid-template-columns: 1fr; gap: 0; margin: 25px 0 22px; border-top: 1px solid #b9a56b57; text-align: left; }
+.share-invitation-option { display: flex; align-items: center; gap: 14px; min-height: 74px; padding: 13px 6px; border-bottom: 1px solid #b9a56b57; color: #203e35; text-decoration: none; transition: background .2s; }
+.share-invitation-option:hover { background: #eee8d9; }
+.share-invitation-option-icon { display: grid; place-items: center; flex: 0 0 auto; width: 40px; height: 40px; border: 1px solid #a8956247; border-radius: 50%; color: #887344; }
+.share-invitation-option strong { display: block; font: 15px/1.6 var(--font-serif, "Noto Serif", Georgia, serif); }
+.share-invitation-option small { display: block; margin-top: 3px; font-size: 10px; line-height: 1.6; color: #7c806c; }
+.share-invitation-copy { text-align: left; }
+.share-invitation-copy label { display: block; margin: 0 0 10px; color: #858169; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
+.share-invitation-copy-row { display: flex; align-items: stretch; min-width: 0; border: 1px solid #b4a06a65; background: #fffcf3; }
+.share-invitation-copy-row input { display: block; flex: 1; width: 0; min-width: 0; height: 46px; padding: 10px; border: 0; border-radius: 0; background: transparent; color: #69705c; font: 10px/1.7 var(--font-sans, "Open Sans", sans-serif); }
+.share-invitation-copy-row button { display: inline-flex; justify-content: center; align-items: center; flex: 0 0 auto; gap: 6px; min-width: 90px; min-height: 46px; padding: 10px 11px; border: 0; border-left: 1px solid #b4a06a65; border-radius: 0; background: #203e35; color: #fff9e8; font: 10px/1.5 var(--font-sans, "Open Sans", sans-serif); cursor: pointer; }
+.share-invitation-copy-row button:hover { background: #335347; }
+.share-invitation-copy-row button:disabled { opacity: .65; cursor: wait; }
+.share-invitation-status { min-height: 34px; margin: 11px 0 0; color: #7d765b; font-size: 10px; line-height: 1.7; }
+.share-invitation-dialog :is(button,a,input):focus-visible { outline: 2px solid #9f7e42; outline-offset: 3px; }
+@keyframes share-invitation-enter { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 350px) {
+  .share-invitation-inner { padding: 40px 20px 14px; }
+  .share-invitation-dialog h2 { font-size: 31px; }
+  .share-invitation-copy-row button { min-width: 82px; padding: 10px 8px; font-size: 9px; }
+  .share-invitation-copy-row input { padding: 9px; font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .share-invitation-dialog[open] { animation: none; }
+  .share-invitation-option { transition: none; }
+}

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invitation//Likitha and Jeevan//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:likitha-jeevan-2026-muhurtham@wedding-invite.invalid
+DTSTAMP:20261109T071539Z
+DTSTART:20261203T023500Z
+DTEND:20261203T034000Z
+SUMMARY:Likitha S. & Jeevan B.K. - Muhurtham
+LOCATION:Suvidha Resort (Ajji Thota)\, Acharya College Main Road\, Thammena
+ halli\, Bengaluru - 560107
+DESCRIPTION:Wedding Muhurtham. 8:05 a.m. to 9:10 a.m. IST. Dhanur Lagna.
+END:VEVENT
+END:VCALENDAR
