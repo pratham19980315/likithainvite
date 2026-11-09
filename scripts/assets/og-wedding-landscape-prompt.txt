@@ -1,0 +1,16 @@
+Generated with the built-in image generation tool using wedding-pavilion.webp as a style reference.
+Source dimensions: 1731 x 909 pixels. Final web export: 1200 x 630 pixels, JPEG quality 90.
+Final asset: public/images/og-wedding-landscape.jpg
+
+Use case: illustration-story / wedding invitation social sharing card.
+Asset type: Open Graph image for a traditional South Indian wedding e-invite.
+Create a NEW composed LANDSCAPE illustration at exactly 1280 pixels wide by 672 pixels high (ratio 1.90476:1, matching final 1200x630). This is a landscape redesign, not a crop of the supplied portrait.
+Reference image: /workspace/scratch/04514ef283e2/likithainvite-vercel-fix/public/images/wedding-pavilion.webp — use for the detailed hand-painted temple architecture style, rich carved warm gold stone, ivory jasmine flowers, subtle dusty pink flowers, olive foliage, soft peach-cream watercolor paper atmosphere. Do not reproduce its portrait layout.
+Composition: a refined horizontal temple invitation. Decorative carved golden South Indian temple pillars at the left and right edges and a delicate shallow golden gopuram-inspired lintel near the top, adorned with small white jasmine garlands and a few restrained marigold and muted pink accents. Brass lamps and small flower arrangements near the lower outer corners. Keep ample uninterrupted pale cream paper in the center, with no architectural or botanical detail behind the typography. The central lettering is the hero. Architecture is elegant and detailed but does not overpower the names. Warm soft sunlight, gentle watercolor texture, polished traditional luxury.
+Text, EXACTLY these three lines and no additional text:
+WEDDING INVITATION
+Likitha & Jeevan
+03 DECEMBER 2026
+Typography: very legible deep maroon, the names in a beautiful classical serif italic, large, centered on one line. The small heading above in spaced serif capitals, but still readable at social-preview thumbnail scale. Date below in medium-large sturdy serif capitals, clearly readable, dark maroon. Do not use pale gold for any lettering. Balanced generous spacing. Every text line within central 60% width and central 55% height of the canvas, far from crop edges. Spell Likitha and Jeevan exactly. The date is 03 DECEMBER 2026.
+Match the supplied artwork’s painterly depth and fine carving. Avoid glossy 3D render aesthetics, flat clip art, oversized bright flowers, stars or geometric mandala graphics, any English or Kannada text beyond the exact three lines, logos, watermarks, crowds, people, and photorealistic photography.
+Opaque cream background; no transparency.

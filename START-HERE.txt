@@ -1,107 +1,97 @@
-LIKITHA & JEEVAN — COMPLETE E-INVITATION PROJECT
-Latest published revision: 5 • Exported 9 November 2026
+LIKITHA & JEEVAN — E-INVITATION PROJECT
 
 START HERE
 
-This ZIP contains the complete editable website project, all website images,
-self-hosted fonts and licence notices, calendar downloads, and the latest
-compiled Worker build. It includes the smaller matching jasmine dividers,
-refined date flower ring, top-right day/night control, door-entry animation,
-sharing options, and the pavilion image corrected to fill the section width.
+This repository contains the editable invitation, temple illustrations,
+self-hosted fonts, music and calendar downloads. The README describes the
+current features and hosting setup. EXPORT-INFO.json records the original
+ZIP export; its revision and file counts are historical.
 
-1. EXTRACT THE ZIP
+1. INSTALL AND OPEN LOCALLY
 
-Extract the entire Likitha-Jeevan-EInvite folder to your computer. Keep its
-folders together, including the .openai folder. Work from this folder in a
-terminal. Some file managers hide folders beginning with a dot.
-
-2. INSTALL AND OPEN LOCALLY
-
-Use Node.js 22.13.0 or newer, with npm. An internet connection is needed for
-the first dependency installation. The dependency versions are locked in
-package-lock.json; node_modules is installed locally rather than bundled.
-
-Run:
+Use a Node.js version compatible with package.json and install the locked
+dependencies from the repository root:
 
     npm run install:ci
     npm run dev
 
-Open the local URL printed in the terminal. The development port defaults
-to 5173. Keep that terminal running while viewing the invitation.
+Open the local URL printed in the terminal. This React application needs
+its web server; it is not a standalone HTML file to open by double-clicking.
 
-This is a Vinext/React web application. It must run through its web server;
-it is not a single index.html file that can be opened by double-clicking.
+2. DEPLOY ON VERCEL
 
-3. VIEW OR REBUILD THE PRODUCTION VERSION
+The connected GitHub repository is:
+https://github.com/pratham19980315/likithainvite
 
-After installing dependencies, preview the included build with:
+vercel.json selects Next.js and runs npx next build. In the Vercel project,
+use the repository root, the Next.js framework preset and the default
+Output Directory. Leave the Output Directory override disabled. A push to
+the connected main branch triggers Vercel's deployment workflow.
 
-    npm start
+For a local production check matching Vercel:
 
-Open the URL printed by Wrangler in the terminal.
+    npx next build
+    npx next start
 
-After editing the source, rebuild and preview with:
+The ordinary npm run build command retains the original Vinext/Sites
+build workflow. It is not the Vercel build command.
 
-    npm run build
-    npm start
+3. WHERE TO EDIT
 
-The source and included build correspond to the same published revision.
-Framework-generated Node prerender metadata is excluded from the export;
-the configured Wrangler Worker does not require it. A rebuild regenerates it.
+app/page.tsx                  Names, families, date, venue and page sections
+app/globals.css               Main styling, typography and day/night scenes
+app/TempleEntrance.tsx        Door-opening animation
+app/temple-entrance.css        Entrance styling and camera movement
+app/Celebrations.tsx          Visible schedule and optional pavilion dialogs
+app/celebrations.css          Schedule, courtyard and dialog styling
+app/WeddingCountdown.tsx      Bottom countdown and its fixed wedding timestamp
+app/wedding-countdown.css     Countdown styling
+app/InvitationMusic.tsx       Optional flute music and volume controls
+app/invitation-music.css      Music-control styling
+app/ShareInvitation.tsx       Share invitation control
+app/layout.tsx                Title, description and social-preview metadata
+public/images/               Temple, courtyard, floral and preview artwork
+public/audio/                Original synthesized flute-style soundtrack
+public/fonts/                Fonts and their licence notices
+public/calendar/             Calendar downloads for all four celebrations
+scripts/audio/               Reproducible soundtrack generator
+scripts/assets/              Landscape-preview generation prompt
 
-4. WHERE TO EDIT
+4. EVENT DETAILS
 
-app/page.tsx                  Main invitation, names, families, date and venue
-app/globals.css               Main styling, layout, dividers and day/night scenes
-app/TempleEntrance.tsx        Door opening and forward movement
-app/temple-entrance.css        Entrance styling and animation
-app/Celebrations.tsx          Haldi, Sangeeth, Muhurtham and reception details
-app/celebrations.css          Celebration courtyard and event panels
-app/ShareInvitation.tsx       Share invitation control and link
-app/share-invitation.css      Sharing panel styling
-app/layout.tsx                Page title, description and social metadata
-public/images/                Temple, courtyard, pavilion and floral artwork
-public/fonts/                 Fonts and their licence notices
-public/calendar/              Calendar downloads
-dist/client/                  Built browser assets
-dist/server/                  Built Worker and server-side modules
+All times are India Standard Time.
 
-5. PUBLISHING / DEVELOPER HANDOFF
+Haldi: Wednesday, 2 December 2026, 12:30 p.m. onwards.
+Sangeeth: Wednesday, 2 December 2026, 6:00 p.m. onwards.
+Muhurtham: Thursday, 3 December 2026, 8:05–9:10 a.m.; Dhanur Lagna.
+Reception & Beegara Outhana Koota: Sunday, 13 December 2026,
+with lunch from 12:30 p.m. onwards.
 
-The built application targets Cloudflare Workers. Keep dist/server and
-dist/client in their current relative locations. dist/server/wrangler.json
-is the deployment configuration, with index.js as the Worker entrypoint.
-Deploy both the Worker and its client assets through your chosen hosting
-workflow. Uploading only dist/client to ordinary static hosting will not
-reproduce this application.
+Venue: Suvidha Resort (Ajji Thota), Acharya College Main Road,
+Thammenahalli, Bengaluru 560107.
 
-For a new domain, first update invitationUrl in app/ShareInvitation.tsx and
-metadataBase in app/layout.tsx, then run npm run build. Asset paths assume
-the invitation is hosted at the domain root.
+The countdown targets 3 December 2026 at 8:05 a.m. IST and stops at zero.
+The pre-wedding photographs have not been supplied; monograms remain in
+place until those photographs are available.
 
-The .openai/hosting.json file identifies the existing ChatGPT Site and is
-imported by vite.config.ts. Preserve it when working with this existing Site.
-For a separate new Site, let the hosting workflow create its new identity.
-The original live link's audience/login settings are managed by its host;
-configure access separately if publishing the downloaded project elsewhere.
+5. MEDIA AND SHARING
 
-Original live invitation:
-https://likitha-jeevan-wedding-2026.advitodev.chatgpt.site/
+Music starts only when a visitor taps the music button. The original
+synthesized flute-style track is public/audio/wedding-flute.mp3, with a
+75% starting volume and an adjustable volume slider. It uses no third-party
+recordings or samples. Instructions and source are in scripts/audio/.
 
-6. CONTENT NOTES
+The social-preview image is public/images/og-wedding-landscape.jpg,
+1200 × 630 pixels. Open Graph and Twitter metadata use this landscape image.
+The generated illustrations are decorative and are not venue site plans.
+Font licence notices remain alongside the local font files.
 
-The pre-wedding photographs were not supplied; the current monograms are
-included. Sangeeth remains at 6:00 p.m. onwards with its date unconfirmed,
-matching the information supplied. The reception and lunch details remain
-on 13 December 2026. All event times shown are India Standard Time.
+Share invitation uses the address where the visitor opened the website.
+For a custom canonical/social domain, set NEXT_PUBLIC_SITE_URL to the full
+HTTPS URL in Vercel and redeploy. Otherwise the metadata uses Vercel's
+production-domain environment variable, with the original Sites domain
+as a fallback outside Vercel.
 
-Sound is synthesized in the browser, so it has no separate music file.
-The illustration source assets used by the website are provided as WebP
-files. Font licences are included beside the font files.
-
-The project does not require a database or storage-service data export.
-The ZIP excludes dependency installations, Git history, credentials, local
-environment files, temporary review files and machine-specific caches.
-
-For the original project notes, see README.md. For export provenance and
-file counts, see EXPORT-INFO.json.
+This invitation does not require a database. Keep credentials and local
+environment files out of the repository. Preserve the existing Sites
+configuration when using the original Sites workflow.

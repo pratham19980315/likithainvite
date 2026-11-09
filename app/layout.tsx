@@ -17,7 +17,13 @@ export const metadata: Metadata = {
     description: "Together with our families, we invite you to celebrate with us. 3 December 2026 · Suvidha Resort, Bengaluru.",
     type: "website",
     locale: "en_IN",
-    images: [{ url: "/images/story-day.webp", width: 1080, height: 1919, alt: "A traditional temple entrance for Likitha and Jeevan's wedding invitation" }],
+    images: [{ url: "/images/og-wedding-landscape.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Likitha and Jeevan wedding invitation — 3 December 2026, framed by a traditional floral temple entrance" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Likitha & Jeevan | Wedding Invitation",
+    description: "3 December 2026 · Suvidha Resort, Bengaluru. Join our wedding celebrations.",
+    images: ["/images/og-wedding-landscape.jpg"],
   },
   icons: {
     icon: "/favicon.svg",

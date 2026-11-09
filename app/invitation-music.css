@@ -1,0 +1,139 @@
+.invitation-music {
+  position: fixed;
+  z-index: 35;
+  right: max(16px, calc((100% - var(--book-width, 680px)) / 2 + 17px));
+  bottom: calc(17px + env(safe-area-inset-bottom, 0px));
+  max-width: calc(100vw - 32px);
+  color: #6d765c;
+  font-family: var(--font-sans);
+}
+
+.wedding-experience:not(.has-entered) .invitation-music {
+  visibility: hidden;
+}
+
+.invitation-music-pill {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  border: 1px solid #baa67766;
+  border-radius: 50px;
+  background: #faf5e9f2;
+  box-shadow: 0 2px 13px #28452314;
+  backdrop-filter: blur(10px);
+}
+
+.invitation-music-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 7px;
+  min-height: 44px;
+  padding: 10px 13px;
+  border: 0;
+  border-radius: 50px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.invitation-music-toggle span {
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.invitation-music-toggle:hover {
+  background: #fffaf0;
+}
+
+.invitation-music.is-playing {
+  color: #916f36;
+}
+
+.invitation-music-volume {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 0 12px 0 9px;
+  border-left: 1px solid #baa6774d;
+}
+
+.invitation-music-volume label {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.invitation-music-volume input {
+  width: 74px;
+  min-width: 45px;
+  height: 32px;
+  margin: 0;
+  accent-color: #9f7e42;
+  cursor: pointer;
+}
+
+.invitation-music-volume output {
+  min-width: 27px;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.invitation-music-toggle:focus-visible,
+.invitation-music-volume input:focus-visible {
+  outline: 2px solid #9f7e42;
+  outline-offset: 3px;
+}
+
+.invitation-music-status {
+  width: 240px;
+  max-width: calc(100vw - 32px);
+  margin: 7px 0 0 auto;
+  padding: 9px 12px;
+  border: 1px solid #baa67766;
+  border-radius: 12px;
+  background: #faf5e9f5;
+  color: #692e39;
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.invitation-music-status:empty {
+  display: none;
+}
+
+.invitation-music-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.evening .invitation-music-pill {
+  background: #eef0e7f2;
+}
+
+@media (max-width: 360px) {
+  .invitation-music-toggle {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .invitation-music-volume {
+    padding-right: 10px;
+    padding-left: 7px;
+  }
+  .invitation-music-volume input {
+    width: 64px;
+  }
+}

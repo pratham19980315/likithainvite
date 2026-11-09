@@ -1,0 +1,76 @@
+.wedding-countdown {
+  padding: 22px 22px 42px;
+  background: var(--paper, #faf5e9);
+  text-align: center;
+  color: #314b3c;
+}
+
+.wedding-countdown-kicker {
+  margin: 0 0 12px;
+  font: 12px/1.7 var(--font-sans, "Open Sans", sans-serif);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #675335;
+}
+
+.wedding-countdown h2 {
+  margin: 0;
+  font: italic 30px/1.45 var(--font-serif, "Noto Serif", Georgia, serif);
+  color: #692e39;
+}
+
+.wedding-countdown-date {
+  display: block;
+  margin: 12px 0 0;
+  font: 15px/1.7 var(--font-sans, "Open Sans", sans-serif);
+  color: #485946;
+}
+
+.wedding-countdown-clock {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 430px;
+  margin: 25px auto 0;
+}
+
+.wedding-countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 15px 5px 13px;
+  border: 1px solid #b49a6159;
+  border-radius: 7px;
+  background: #fffaf0;
+}
+
+.wedding-countdown-unit dt {
+  order: 2;
+  font: 12px/1.5 var(--font-sans, "Open Sans", sans-serif);
+  color: #485946;
+}
+
+.wedding-countdown-unit dd {
+  margin: 0;
+  font: 34px/1.2 var(--font-serif, "Noto Serif", Georgia, serif);
+  font-variant-numeric: tabular-nums;
+  color: #692e39;
+}
+
+.wedding-countdown-arrived {
+  max-width: 380px;
+  margin: 22px auto 0;
+  font: 16px/1.8 var(--font-sans, "Open Sans", sans-serif);
+  color: #485946;
+}
+
+@media (max-width: 420px) {
+  .wedding-countdown { padding: 18px 16px 36px; }
+  .wedding-countdown h2 { font-size: 26px; }
+  .wedding-countdown-clock { gap: 6px; }
+  .wedding-countdown-unit { padding: 13px 3px 11px; }
+  .wedding-countdown-unit dd { font-size: 28px; }
+}

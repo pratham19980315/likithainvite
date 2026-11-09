@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, CalendarDays, ChevronDown, MapPin, Plus, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CalendarDays, MapPin, Plus, X } from "lucide-react";
 import "./celebrations.css";
 
 const locationUrl = "https://maps.app.goo.gl/HBPk2KicALnd7gYG7";
@@ -16,7 +16,7 @@ const celebrations = [
     isoDate: "2026-12-02",
     time: "12:30 p.m. onwards",
     calendar: "/calendar/haldi.ics",
-    colour: "#9b6c21",
+    colour: "#82591b",
     x: "25%",
     y: "30%",
   },
@@ -24,11 +24,11 @@ const celebrations = [
     id: "sangeeth",
     name: "Sangeeth",
     line: "An evening of music & togetherness.",
-    day: "",
-    date: "Date to be confirmed",
-    isoDate: "",
+    day: "Wednesday",
+    date: "2 December 2026",
+    isoDate: "2026-12-02",
     time: "6:00 p.m. onwards",
-    calendar: "",
+    calendar: "/calendar/sangeeth.ics",
     colour: "#645270",
     x: "77%",
     y: "29%",
@@ -111,8 +111,28 @@ export default function Celebrations() {
         <div className="chapter-mark"><span>03</span><i/><p>The wedding celebrations</p></div>
         <span className="celebrations-divider" aria-hidden="true">✦</span>
         <h2 id="celebrations-title">Moments to cherish</h2>
-        <p>Tap a celebration to discover the details.</p>
+        <p>Join us for these celebrations with our families.</p>
       </header>
+
+      <section className="celebrations-schedule" aria-labelledby="celebrations-schedule-title">
+        <h3 className="celebrations-schedule-heading" id="celebrations-schedule-title">Celebration schedule</h3>
+        <ol>
+          {celebrations.map((celebration, index) => (
+            <li key={celebration.id}>
+              <span className="schedule-number" aria-hidden="true">0{index + 1}</span>
+              <div>
+                <h4 className="schedule-event-name">{celebration.name}</h4>
+                {celebration.subtitle && <p className="schedule-subtitle">{celebration.subtitle}</p>}
+                <p className="schedule-date">{celebration.day && `${celebration.day}, `}{celebration.isoDate ? <time dateTime={celebration.isoDate}>{celebration.date}</time> : celebration.date}</p>
+                <p>{celebration.time}</p>
+                {celebration.note && <p className="schedule-note">{celebration.note}</p>}
+                {celebration.calendar && <a className="schedule-calendar" href={celebration.calendar} download><CalendarDays size={14} aria-hidden="true" /> Add to calendar</a>}
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p className="schedule-venue">All celebrations at Suvidha Resort (Ajji Thota), Bengaluru.</p>
+      </section>
 
       <figure className="celebrations-courtyard" data-reveal>
         <div className="celebrations-artwork">
@@ -139,28 +159,8 @@ export default function Celebrations() {
             </button>
           ))}
         </div>
-        <figcaption>An illustrated setting for our celebrations</figcaption>
+        <figcaption>Explore the pavilions for celebration details</figcaption>
       </figure>
-
-      <details className="celebrations-schedule">
-        <summary>View the full schedule <ChevronDown size={18} strokeWidth={1.5} aria-hidden="true" /></summary>
-        <ol>
-          {celebrations.map((celebration, index) => (
-            <li key={celebration.id}>
-              <span className="schedule-number" aria-hidden="true">0{index + 1}</span>
-              <div>
-                <h3>{celebration.name}</h3>
-                {celebration.subtitle && <p className="schedule-subtitle">{celebration.subtitle}</p>}
-                <p className="schedule-date">{celebration.day && `${celebration.day}, `}{celebration.isoDate ? <time dateTime={celebration.isoDate}>{celebration.date}</time> : celebration.date}</p>
-                <p>{celebration.time}</p>
-                {celebration.note && <p className="schedule-note">{celebration.note}</p>}
-                {celebration.calendar && <a className="schedule-calendar" href={celebration.calendar} download><CalendarDays size={14} aria-hidden="true" /> Add to calendar</a>}
-              </div>
-            </li>
-          ))}
-        </ol>
-        <p className="schedule-venue">All celebrations at Suvidha Resort (Ajji Thota), Bengaluru.</p>
-      </details>
       <p className="celebrations-timezone">All times are in India Standard Time.</p>
 
       <dialog
